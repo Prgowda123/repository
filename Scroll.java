@@ -1,4 +1,4 @@
-package Tablet;
+package Tv;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -20,7 +20,7 @@ public class Scroll {
 	{
 		UiAutomator2Options option = new UiAutomator2Options();
 		 AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\pallavi\\AppData\\Roaming\\npm\\node_modules\\appium\\lib\\main.js")).usingPort(4723).build();
-		option.setDeviceName("Medium Phone");
+		option.setDeviceName("New Device 6 API 35");
 		option.setApp("D:/code/sddf/app/ApiDemos-debug.apk");
 		option.setPlatformName("Android");
 		option.setAutomationName("UiAutomator2");
