@@ -1,17 +1,17 @@
-package abc;
+package Tablet;
+
+import io.appium.java_client.AppiumBy;
+import java.io.File;
+import java.net.URI;
+import java.net.URL;
+
+import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import java.io.File;
-import java.net.URI;
-import java.net.URL;
 
 public class AppiumTest {
 
@@ -23,7 +23,7 @@ public class AppiumTest {
         AppiumDriverLocalService Jspath=new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\pallavi\\AppData\\Roaming\\npm\\node_modules\\appium\\lib\\main.js")).withIPAddress("127.0.0.1")
         		.usingPort(4723).build();
         
-        option.setDeviceName("Medium Phone");  // Replace with your device name
+        option.setDeviceName("Pixel Tablet API 35");  // Replace with your device name
         option.setApp("D:/code/sddf/app/ApiDemos-debug.apk");  // Replace with your APK path
         option.setPlatformName("Android");  // Add platform name
         option.setAutomationName("UiAutomator2");  // Add automation name

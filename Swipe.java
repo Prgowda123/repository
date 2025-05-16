@@ -1,4 +1,4 @@
-package abc;
+package Tablet;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -21,9 +21,8 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 public class Swipe {
-	public AndroidDriver driver;
 @Test
-public void sample() throws MalformedURLException, InterruptedException
+public void sample() throws MalformedURLException
 {
 	UiAutomator2Options option = new UiAutomator2Options();
 	
@@ -36,36 +35,20 @@ public void sample() throws MalformedURLException, InterruptedException
 	URI uri = URI.create("http://127.0.0.1:4723");
 	URL url = uri.toURL();
 	
-	 driver = new AndroidDriver(url, option);
-	WebElement view = driver.findElement(AppiumBy.accessibilityId("Views"));
-	view.click();
-	Thread.sleep(2000);
-
+	AndroidDriver driver = new AndroidDriver(url, option);
+	driver.findElement(AppiumBy.accessibilityId("Views")).click();
 	driver.findElement(AppiumBy.accessibilityId("Gallery")).click();
-	Thread.sleep(2000);
-
 	driver.findElement(AppiumBy.accessibilityId("1. Photos")).click();
-	Thread.sleep(2000);
-
-
 	WebElement swipe = driver.findElement(AppiumBy.xpath("//android.widget.ImageView[1]"));
-
-	swipeAction(swipe, "left");
-	Thread.sleep(5000);
+	JavascriptExecutor jss = (JavascriptExecutor) driver;
+	 jss.executeScript("mobile: longClickGesture", ImmutableMap.of( "elementId", ((RemoteWebElement) swipe).getId(),
+			    "direction", "left",
+			    "percent", 0.75
+			));
 	
 	service.stop();
 	driver.quit();
 	
 	
-} 
-
-public void swipeAction(WebElement ele, String direction)
-{
-	JavascriptExecutor jss = (JavascriptExecutor) driver;
-	jss.executeScript("mobile: swipeGesture", ImmutableMap.of(
-	    "elementId", ((RemoteWebElement) ele).getId(),
-	    "direction", direction,
-	    "percent", 0.2
-	));
 }
 }
